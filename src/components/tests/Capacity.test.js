@@ -1,5 +1,5 @@
-import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { render, screen } from "../../test-utils";
 import Capacity from "../Capacity";
 
 describe("Verify all capacities of RAM and SSD", () => {

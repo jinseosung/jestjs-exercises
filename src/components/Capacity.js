@@ -4,15 +4,14 @@ import CapacityWrapper from "./CapacityWrapper";
 import RamCapacities from "./RamCapacities";
 import SsdCapacities from "./SsdCapacities";
 import AlertError from "./AlertError";
+import useAndCheckMacBookDetails from "./providers/useAndCheckMacBookDetails";
 
 const Capacity = ({ capacityType }) => {
   const [items, setItems] = useState([]);
-  const [ssd, setSsd] = useState(0);
   const [error, setError] = useState(false);
 
-  const handleSsdChange = (e) => {
-    setSsd(parseInt(e.target.value));
-  };
+  const { handleRamChange, handleSsdChange, productInfos } =
+    useAndCheckMacBookDetails();
 
   useEffect(() => {
     // fetch(`http://localhost:3030/${capacityType}`)
@@ -37,7 +36,7 @@ const Capacity = ({ capacityType }) => {
           <select
             className="form-select form-select-outline w-50"
             aria-label="Default select"
-            onChange={() => {}}
+            onChange={handleRamChange}
           >
             {items.map((capacity) => (
               <RamCapacities
@@ -55,7 +54,7 @@ const Capacity = ({ capacityType }) => {
               key={capacity.id}
               id={capacity.id}
               price={capacity.price}
-              selectedSsd={ssd}
+              selectedSsd={productInfos.inputssd}
               label={capacity.label}
               handleSsdChange={handleSsdChange}
             />

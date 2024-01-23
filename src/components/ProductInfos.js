@@ -1,9 +1,10 @@
 import React from "react";
 import macbookImg from "../images/macbook.jpg";
+import { formatPrice } from "../utilities";
 import useAndCheckMacBookDetails from "./providers/useAndCheckMacBookDetails";
 
 function ProductInfos() {
-  const { productInfos } = useAndCheckMacBookDetails();
+  const { productInfos, subtotal } = useAndCheckMacBookDetails();
 
   return (
     <>
@@ -20,7 +21,7 @@ function ProductInfos() {
           />
         </div>
         <h5 className="mt-4">MacBook Air - Gris sidéral</h5>
-        <h4 className="green">1 199,00 €</h4>
+        <h4 className="green">{formatPrice(subtotal)} €</h4>
       </div>
       <div className="col-md-6 mt-3">
         <div className="bg-white p-3 d-flex flex-column">
