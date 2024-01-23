@@ -7,7 +7,7 @@ import SsdCapacities from "./SsdCapacities";
 const Capacity = ({ capacityType }) => {
   const [items, setItems] = useState([]);
   const [ssd, setSsd] = useState(0);
-
+  
   const handleSsdChange = (e) => {
     setSsd(parseInt(e.target.value));
   };
