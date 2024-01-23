@@ -1,8 +1,7 @@
-import { render, screen, waitFor } from "@testing-library/react";
 import { rest } from "msw";
+import { render, screen, waitFor } from "../../test-utils";
 import Configuration from "../Configuration";
 import { server } from "../../mocks/server";
-import MacBookProviders from "../providers/MacBookProviders";
 
 test("Testing RAM and SSD errors", async () => {
   server.resetHandlers(
@@ -14,7 +13,7 @@ test("Testing RAM and SSD errors", async () => {
     })
   );
 
-  render(<Configuration />, { wrapper: MacBookProviders });
+  render(<Configuration />);
 
   //   const alerts = await screen.findAllByRole("alert");
   //   expect(alerts).toHaveLength(2);
