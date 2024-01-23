@@ -1,7 +1,10 @@
 import React from "react";
 import macbookImg from "../images/macbook.jpg";
+import useAndCheckMacBookDetails from "./providers/useAndCheckMacBookDetails";
 
 function ProductInfos() {
+  const { productInfos } = useAndCheckMacBookDetails();
+
   return (
     <>
       <div className="col-md-6 mt-3">
@@ -27,8 +30,8 @@ function ProductInfos() {
               Puce Apple M2 avec CPU 8 cœurs, GPU 10 cœurs, Neural Engine 16
               cœurs
             </li>
-            <li>8 Go de mémoire unifiée</li>
-            <li>SSD de 256 Go</li>
+            <li>{productInfos.capacityRam} de mémoire unifiée</li>
+            <li>SSD de {productInfos.capacitySsd}</li>
             <li>Écran Liquid Retina 15,3 pouces avec True Tone³</li>
             <li>Caméra FaceTime HD 1080p</li>
             <li>Port de charge MagSafe 3</li>

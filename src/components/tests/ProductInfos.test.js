@@ -1,8 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import ProductInfos from "../ProductInfos";
+import MacBookProviders from "../providers/MacBookProviders";
 
 test("Element render correctly", () => {
-  render(<ProductInfos />);
+  render(<ProductInfos />, { wrapper: MacBookProviders });
 
   // Image
   const img = screen.getByRole("img", { name: /macbook/i });
