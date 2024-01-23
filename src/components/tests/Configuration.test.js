@@ -61,4 +61,9 @@ test("Updating the price and displaying product information based on the selecte
   expect(inputSsd512).toBeChecked();
   expect(productPrice).toHaveTextContent("1 659,00");
   expect(capacitySsd).toHaveTextContent("SSD de 512 Go");
+
+  await user.selectOptions(select, "0");
+  expect(select.value).toBe("0");
+  expect(productPrice).toHaveTextContent("1 429,00");
+  expect(capacityRam).toHaveTextContent("8 Go de mémoire unifiée");
 });
