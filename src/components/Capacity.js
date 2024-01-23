@@ -3,11 +3,13 @@ import axios from "axios";
 import CapacityWrapper from "./CapacityWrapper";
 import RamCapacities from "./RamCapacities";
 import SsdCapacities from "./SsdCapacities";
+import AlertError from "./AlertError";
 
 const Capacity = ({ capacityType }) => {
   const [items, setItems] = useState([]);
   const [ssd, setSsd] = useState(0);
-  
+  const [error, setError] = useState(false);
+
   const handleSsdChange = (e) => {
     setSsd(parseInt(e.target.value));
   };
@@ -21,8 +23,12 @@ const Capacity = ({ capacityType }) => {
     axios
       .get(`http://localhost:3030/${capacityType}`)
       .then((res) => setItems(res.data))
-      .catch((err) => console.log(err));
+      .catch((err) => setError(true));
   }, [capacityType]);
+
+  if (error) {
+    return <AlertError />;
+  }
 
   return (
     <div>
