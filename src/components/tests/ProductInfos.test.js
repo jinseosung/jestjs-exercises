@@ -14,6 +14,8 @@ test("Element render correctly", () => {
   expect(img).toBeInTheDocument();
   expect(img).toHaveClass("img-fluid");
 
+  // screen.logTestingPlaygroundURL();
+
   // Name of product
   const h5 = screen.getByRole("heading", { level: 5, name: /Gris sidéral/i });
   expect(h5).toBeInTheDocument();

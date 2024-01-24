@@ -7,6 +7,7 @@ describe("Validation component", () => {
     render(<Validation nextLevel="confirmationStep" />);
     const btnConfirmation = screen.getByRole("button", { name: /valider/i });
     expect(btnConfirmation).toBeInTheDocument();
+    // screen.logTestingPlaygroundURL()
   });
 
   test("Ajouter au panier button renders correctly", () => {
