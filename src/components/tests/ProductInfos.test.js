@@ -1,8 +1,13 @@
-import { render, screen } from "../../test-utils";
+import { logRoles, prettyDOM, render, screen } from "../../test-utils";
 import ProductInfos from "../ProductInfos";
 
 test("Element render correctly", () => {
   render(<ProductInfos />);
+
+  // const { container } = render(<ProductInfos />); // container: HTMLDivElement
+  // logRoles(container);
+
+  // console.log(prettyDOM(container));
 
   // Image
   const img = screen.getByRole("img", { name: /macbook/i });
